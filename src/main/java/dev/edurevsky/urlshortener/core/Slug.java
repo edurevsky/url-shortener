@@ -8,11 +8,11 @@ public final class Slug {
 
     public Slug() {
         int min = 5;
-        int max = 10;
+        int max = 11;
         var sb = new StringBuilder();
 
         var random = new Random();
-        var length = random.nextInt(max - min) + min + 1;
+        var length = random.nextInt(max - min) + min;
         for (int i = 0; i < length; i++) {
             var index = random.nextInt(Characters.ALLOWED.length());
             char c = Characters.ALLOWED.charAt(index);
