@@ -24,4 +24,35 @@ class SlugTest {
 
         }
     }
+
+    @Test
+    void shouldNotCreateSlug() {
+
+        var expectedType = IllegalArgumentException.class;
+
+        assertThrows(expectedType, () -> new Slug(""));
+        assertThrows(expectedType, () -> new Slug("-"));
+        assertThrows(expectedType, () -> new Slug("++++++"));
+        assertThrows(expectedType, () -> new Slug("$"));
+        assertThrows(expectedType, () -> new Slug("a"));
+        assertThrows(expectedType, () -> new Slug("a7"));
+        assertThrows(expectedType, () -> new Slug("a9e"));
+        assertThrows(expectedType, () -> new Slug("a9ea"));
+        assertThrows(expectedType, () -> new Slug("a9ea2iepsaw"));
+        assertThrows(expectedType, () -> new Slug("fh792q3fhql"));
+        assertThrows(expectedType, () -> new Slug("11111111111"));
+        assertThrows(expectedType, () -> new Slug("auhwf97q2h4fahsfl"));
+
+    }
+
+    @Test
+    void shouldCreateSlug() {
+
+        var message = "Value does not match the allowed regex.";
+
+        assertDoesNotThrow(() -> new Slug("abcde"), message);
+        assertDoesNotThrow(() -> new Slug("ab34da2"), message);
+        assertDoesNotThrow(() -> new Slug("aiwj8ei2am"), message);
+
+    }
 }
