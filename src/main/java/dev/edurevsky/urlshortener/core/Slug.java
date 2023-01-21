@@ -4,7 +4,7 @@ import java.util.Random;
 
 public final class Slug {
 
-    private final String value;
+    private String value;
 
     public Slug() {
         int min = 5;
@@ -19,7 +19,11 @@ public final class Slug {
             sb.append(c);
         }
 
-        this.value = sb.toString();
+        this.setValue(sb.toString());
+    }
+
+    public Slug(String slug) {
+        this.setValue(slug);
     }
 
     public String getValue() {
@@ -29,5 +33,12 @@ public final class Slug {
     @Override
     public String toString() {
         return this.value;
+    }
+
+    private void setValue(String value) {
+        if (!value.matches(Characters.ALLOWED_REGEX)) {
+            throw new IllegalArgumentException("Value does not match the allowed regex.");
+        }
+        this.value = value;
     }
 }

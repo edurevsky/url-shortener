@@ -2,6 +2,8 @@ package dev.edurevsky.urlshortener.core;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.concurrent.atomic.AtomicReference;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class SlugTest {
@@ -11,9 +13,14 @@ class SlugTest {
 
         for (int i = 0; i < 100; i++) {
 
-            var slug = new Slug();
+            var slug = new AtomicReference<Slug>();
 
-            assertTrue(slug.getValue().matches(Characters.ALLOWED_REGEX));
+            assertDoesNotThrow(
+                    () -> slug.set(new Slug()),
+                    "Value does not match the allowed regex."
+            );
+
+            assertTrue(slug.get().getValue().matches(Characters.ALLOWED_REGEX));
 
         }
     }
