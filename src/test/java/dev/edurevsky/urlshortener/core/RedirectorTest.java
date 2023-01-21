@@ -25,7 +25,7 @@ class RedirectorTest {
     void returnsFalseWhenNotIsExpired() {
 
         var slug = new Slug();
-        var url = "";
+        var url = "https://google.com";
         var datetime = LocalDateTime.now().plusHours(1L);
 
         var redirector = new Redirector(slug, url, datetime);

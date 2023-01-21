@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 public final class Redirector {
 
     private Slug slug;
-    private String redirectsTo;
+    private URL redirectsTo;
     private LocalDateTime expiration;
 
     public Redirector() {
@@ -14,13 +14,13 @@ public final class Redirector {
 
     public Redirector(String fromUrl) {
         this.slug = new Slug();
-        this.redirectsTo = fromUrl;
+        this.redirectsTo = new URL(fromUrl);
         this.expiration = LocalDateTime.now().plusHours(1);
     }
 
     public Redirector(Slug slug, String redirectsTo, LocalDateTime expiration) {
         this.slug = slug;
-        this.redirectsTo = redirectsTo;
+        this.redirectsTo = new URL(redirectsTo);
         this.expiration = expiration;
     }
 
@@ -29,7 +29,7 @@ public final class Redirector {
     }
 
     public String getRedirectsTo() {
-        return redirectsTo;
+        return redirectsTo.toString();
     }
 
     public LocalDateTime getExpiration() {
