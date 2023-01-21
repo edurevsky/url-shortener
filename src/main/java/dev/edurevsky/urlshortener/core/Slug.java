@@ -1,5 +1,6 @@
 package dev.edurevsky.urlshortener.core;
 
+import java.util.Objects;
 import java.util.Random;
 
 public final class Slug {
@@ -29,6 +30,10 @@ public final class Slug {
         this.setValue(slug);
     }
 
+    public static Slug from(Redirector redirector) {
+        return new Slug(redirector.getSlug());
+    }
+
     public String getValue() {
         return value;
     }
@@ -43,5 +48,18 @@ public final class Slug {
             throw new IllegalArgumentException("Value does not match the allowed regex.");
         }
         this.value = value;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Slug slug = (Slug) o;
+        return value.equals(slug.value);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(value);
     }
 }

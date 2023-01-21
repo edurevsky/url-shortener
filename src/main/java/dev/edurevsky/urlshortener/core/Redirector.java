@@ -1,6 +1,7 @@
 package dev.edurevsky.urlshortener.core;
 
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 public final class Redirector {
 
@@ -38,5 +39,18 @@ public final class Redirector {
 
     public boolean isExpired() {
         return LocalDateTime.now().isAfter(this.expiration);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Redirector that = (Redirector) o;
+        return slug.equals(that.slug);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(slug, redirectsTo, expiration);
     }
 }
