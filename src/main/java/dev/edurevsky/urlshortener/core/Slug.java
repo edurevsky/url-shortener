@@ -4,6 +4,9 @@ import java.util.Random;
 
 public final class Slug {
 
+    public static final String ALLOWED_REGEX = "[a-z0-9]{5,10}";
+    public static final String ALLOWED_CHARACTERS = "abcdefghijklmnopqrstuvwxyz1234567890";
+
     private String value;
 
     public Slug() {
@@ -14,8 +17,8 @@ public final class Slug {
         var random = new Random();
         var length = random.nextInt(max - min) + min;
         for (int i = 0; i < length; i++) {
-            var index = random.nextInt(Characters.ALLOWED.length());
-            char c = Characters.ALLOWED.charAt(index);
+            var index = random.nextInt(ALLOWED_CHARACTERS.length());
+            char c = ALLOWED_CHARACTERS.charAt(index);
             sb.append(c);
         }
 
@@ -36,7 +39,7 @@ public final class Slug {
     }
 
     private void setValue(String value) {
-        if (!value.matches(Characters.ALLOWED_REGEX)) {
+        if (!value.matches(ALLOWED_REGEX)) {
             throw new IllegalArgumentException("Value does not match the allowed regex.");
         }
         this.value = value;

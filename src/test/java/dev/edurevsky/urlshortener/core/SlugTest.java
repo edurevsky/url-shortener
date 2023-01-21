@@ -20,7 +20,7 @@ class SlugTest {
                     "Value does not match the allowed regex."
             );
 
-            assertTrue(slug.get().getValue().matches(Characters.ALLOWED_REGEX));
+            assertTrue(slug.get().getValue().matches(Slug.ALLOWED_REGEX));
 
         }
     }
