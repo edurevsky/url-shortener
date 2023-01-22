@@ -23,17 +23,16 @@ class CreateRedirectorTest {
         var command = new CreateRedirectorCommand(url);
 
         var redirector = new Redirector(url);
-        var slug = Slug.from(redirector);
 
-        when(repository.create(eq(redirector)))
+        when(repository.create(any(Redirector.class)))
                 .thenReturn(redirector);
 
 
         createRedirector.execute(command);
 
 
-        verify(repository, times(0))
-                .slugAreadyExists(eq(slug));
+        verify(repository, times(1))
+                .slugAreadyExists(any());
 
         verify(repository, times(1))
                 .create(any());
@@ -41,7 +40,7 @@ class CreateRedirectorTest {
     }
 
     @Test
-    void shouldCreateRedirectorIfAtLeastOnceSlugAlreadyExists() {
+    void shouldCreateRedirectorIfAtLeastOneSlugAlreadyExists() {
         var repository = mock(RedirectorRepository.class);
         var createRedirector = new CreateRedirector(repository);
 
@@ -61,7 +60,7 @@ class CreateRedirectorTest {
         createRedirector.execute(command);
 
 
-        verify(repository, times(1))
+        verify(repository, times(2))
                 .slugAreadyExists(any(Slug.class));
 
         verify(repository, times(1))
