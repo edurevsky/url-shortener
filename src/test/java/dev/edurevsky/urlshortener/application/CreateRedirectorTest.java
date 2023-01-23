@@ -6,9 +6,8 @@ import dev.edurevsky.urlshortener.core.RedirectorRepository;
 import dev.edurevsky.urlshortener.core.Slug;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
 
 class CreateRedirectorTest {
@@ -20,7 +19,7 @@ class CreateRedirectorTest {
         var createRedirector = new CreateRedirector(repository);
 
         var url = "https://youtube.com";
-        var command = new CreateRedirectorCommand(url);
+        CreateRedirectorCommand command = () -> url;
 
         var redirector = new Redirector(url);
 
@@ -45,7 +44,7 @@ class CreateRedirectorTest {
         var createRedirector = new CreateRedirector(repository);
 
         var url = "https://google.com";
-        var command = new CreateRedirectorCommand(url);
+        CreateRedirectorCommand command = () -> url;
 
         var redirector = new Redirector(url);
 
@@ -72,7 +71,8 @@ class CreateRedirectorTest {
         var repository = mock(RedirectorRepository.class);
         var createRedirector = new CreateRedirector(repository);
 
-        var command = new CreateRedirectorCommand("");
+        var url = "";
+        CreateRedirectorCommand command = () -> url;
 
         var expectedType = IllegalArgumentException.class;
         assertThrows(expectedType, () -> createRedirector.execute(command));
