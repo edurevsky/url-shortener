@@ -1,5 +1,5 @@
 package dev.edurevsky.urlshortener.application.commands;
 
-public record CreateRedirectorCommand(String url) implements Command {
-
+public interface CreateRedirectorCommand extends Command {
+    String url();
 }
