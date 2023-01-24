@@ -1,4 +1,4 @@
-package dev.edurevsky.urlshortener.application;
+package dev.edurevsky.urlshortener.application.usecases;
 
 import dev.edurevsky.urlshortener.application.commands.Command;
 
