@@ -45,7 +45,7 @@ public final class Slug {
 
     private void setValue(String value) {
         if (!value.matches(ALLOWED_REGEX)) {
-            throw new IllegalArgumentException("Value does not match the allowed regex.");
+            throw new IllegalSlugException();
         }
         this.value = value;
     }

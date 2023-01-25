@@ -23,7 +23,7 @@ public final class URL {
 
     private void setValue(String value) {
         if (!value.matches(SECURE_URL)) {
-            throw new IllegalArgumentException("Value does not match as an valid or secure URL.");
+            throw new IllegalURLException();
         }
         this.value = value;
     }
