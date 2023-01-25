@@ -31,7 +31,7 @@ public class JpaRedirectorRepositoryImpl implements RedirectorRepository {
     @Override
     @Transactional
     public void deleteAllExpired() {
-        this.jpaRedirectRepository.removeAllByExpirationDateBefore(LocalDateTime.now());
+        this.jpaRedirectRepository.removeAllExpired();
     }
 
     @Override
