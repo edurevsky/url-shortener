@@ -9,7 +9,7 @@ class URLTest {
     @Test
     void shouldNotCreateURL() {
 
-        var expectedType = IllegalArgumentException.class;
+        var expectedType = IllegalURLException.class;
 
         var url1 = "http://";
         var url2 = "";

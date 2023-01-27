@@ -2,6 +2,7 @@ package dev.edurevsky.urlshortener.application.usecases;
 
 import dev.edurevsky.urlshortener.application.commands.CreateRedirectorCommand;
 import dev.edurevsky.urlshortener.application.usecases.CreateRedirector;
+import dev.edurevsky.urlshortener.core.IllegalURLException;
 import dev.edurevsky.urlshortener.core.Redirector;
 import dev.edurevsky.urlshortener.core.RedirectorRepository;
 import dev.edurevsky.urlshortener.core.Slug;
@@ -75,7 +76,7 @@ class CreateRedirectorTest {
         var url = "";
         CreateRedirectorCommand command = () -> url;
 
-        var expectedType = IllegalArgumentException.class;
+        var expectedType = IllegalURLException.class;
         assertThrows(expectedType, () -> createRedirector.execute(command));
 
     }

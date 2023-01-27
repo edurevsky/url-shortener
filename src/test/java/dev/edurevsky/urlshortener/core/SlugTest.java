@@ -28,7 +28,7 @@ class SlugTest {
     @Test
     void shouldNotCreateSlug() {
 
-        var expectedType = IllegalArgumentException.class;
+        var expectedType = IllegalSlugException.class;
 
         assertThrows(expectedType, () -> new Slug(""));
         assertThrows(expectedType, () -> new Slug("-"));
