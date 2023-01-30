@@ -1,4 +1,4 @@
-package dev.edurevsky.urlshortener.core;
+package dev.edurevsky.urlshortener.core.redirector;
 
 public class UrlShortenerCoreException extends RuntimeException {
 

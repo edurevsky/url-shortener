@@ -1,4 +1,4 @@
-package dev.edurevsky.urlshortener.core;
+package dev.edurevsky.urlshortener.core.redirector;
 
 import java.util.Objects;
 import java.util.Random;

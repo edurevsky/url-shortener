@@ -1,4 +1,4 @@
-package dev.edurevsky.urlshortener.core;
+package dev.edurevsky.urlshortener.core.redirector;
 
 public final class IllegalSlugException extends UrlShortenerCoreException {
 
