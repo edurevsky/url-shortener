@@ -1,5 +1,7 @@
 package dev.edurevsky.urlshortener.core;
 
+import dev.edurevsky.urlshortener.core.redirector.IllegalURLException;
+import dev.edurevsky.urlshortener.core.redirector.URL;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

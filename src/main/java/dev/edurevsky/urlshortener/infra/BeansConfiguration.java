@@ -3,7 +3,7 @@ package dev.edurevsky.urlshortener.infra;
 import dev.edurevsky.urlshortener.application.usecases.CreateRedirector;
 import dev.edurevsky.urlshortener.application.tasks.DeleteAllExpired;
 import dev.edurevsky.urlshortener.application.usecases.FindRedirector;
-import dev.edurevsky.urlshortener.core.RedirectorRepository;
+import dev.edurevsky.urlshortener.core.redirector.RedirectorRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

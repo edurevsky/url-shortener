@@ -2,7 +2,7 @@ package dev.edurevsky.urlshortener.web;
 
 import dev.edurevsky.urlshortener.application.usecases.CreateRedirector;
 import dev.edurevsky.urlshortener.application.usecases.FindRedirector;
-import dev.edurevsky.urlshortener.core.Redirector;
+import dev.edurevsky.urlshortener.core.redirector.Redirector;
 import dev.edurevsky.urlshortener.web.requests.NewRedirectorRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

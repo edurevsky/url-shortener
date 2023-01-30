@@ -1,5 +1,7 @@
 package dev.edurevsky.urlshortener.core;
 
+import dev.edurevsky.urlshortener.core.redirector.IllegalSlugException;
+import dev.edurevsky.urlshortener.core.redirector.Slug;
 import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.atomic.AtomicReference;

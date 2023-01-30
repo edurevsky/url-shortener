@@ -1,6 +1,6 @@
 package dev.edurevsky.urlshortener.application.exceptions;
 
-import dev.edurevsky.urlshortener.core.Slug;
+import dev.edurevsky.urlshortener.core.redirector.Slug;
 
 public final class RedirectorNotFoundException extends UrlShortenerApplicationException {
 

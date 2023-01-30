@@ -1,7 +1,7 @@
 package dev.edurevsky.urlshortener.application.tasks;
 
 import dev.edurevsky.urlshortener.application.commands.NoCommand;
-import dev.edurevsky.urlshortener.core.RedirectorRepository;
+import dev.edurevsky.urlshortener.core.redirector.RedirectorRepository;
 
 public final class DeleteAllExpired extends Task {
 

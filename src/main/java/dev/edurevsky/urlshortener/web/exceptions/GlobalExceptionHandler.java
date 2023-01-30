@@ -1,7 +1,7 @@
 package dev.edurevsky.urlshortener.web.exceptions;
 
 import dev.edurevsky.urlshortener.application.exceptions.RedirectorNotFoundException;
-import dev.edurevsky.urlshortener.core.UrlShortenerCoreException;
+import dev.edurevsky.urlshortener.core.redirector.UrlShortenerCoreException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;

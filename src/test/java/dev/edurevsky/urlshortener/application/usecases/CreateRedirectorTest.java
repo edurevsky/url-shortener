@@ -1,11 +1,10 @@
 package dev.edurevsky.urlshortener.application.usecases;
 
 import dev.edurevsky.urlshortener.application.commands.CreateRedirectorCommand;
-import dev.edurevsky.urlshortener.application.usecases.CreateRedirector;
-import dev.edurevsky.urlshortener.core.IllegalURLException;
-import dev.edurevsky.urlshortener.core.Redirector;
-import dev.edurevsky.urlshortener.core.RedirectorRepository;
-import dev.edurevsky.urlshortener.core.Slug;
+import dev.edurevsky.urlshortener.core.redirector.IllegalURLException;
+import dev.edurevsky.urlshortener.core.redirector.Redirector;
+import dev.edurevsky.urlshortener.core.redirector.RedirectorRepository;
+import dev.edurevsky.urlshortener.core.redirector.Slug;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
