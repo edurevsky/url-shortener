@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  app:
+    build:
+      dockerfile: ./Dockerfile
+      context: ./
+    image: urlshortener/app
+    networks:
+      - urlshortener
+    restart: unless-stopped
+    ports:
+      - '5005:5005'
+      - '8080:8080'
+    environment:
+      - ADDITIONAL_OPTS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 -Xmx1G -Xms128m -XX:MaxMetaspaceSize=128m
+      - PROFILE=${PROFILE}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+    depends_on:
+      - mysql_db
+  mysql_db:
+    image: mysql:8.0.30
+    networks:
+      - urlshortener
+    restart: unless-stopped
+    environment:
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_ROOT_HOST=%
+    ports:
+      - '3307:3306'
+    volumes:
+      - ./docker/volumes/mysql_db:/var/lib/mysql
+
+networks:
+  urlshortener:
+    driver: bridge
